@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+.hoverable {
+  display: inline-block;
+  backface-visibility: hidden;
+  vertical-align: middle;
+  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  tranform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.hoverable:before {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  content: "";
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+  /* W3C */
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+}
+
+.hoverable:hover, .hoverable:active, .hoverable:focus {
+  transform: translateY(-5px);
+}
+
+.hoverable:hover:before, .hoverable:active:before, .hoverable:focus:before {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+@keyframes bounce-animation {
+  16.65% {
+    -webkit-transform: translateY(8px);
+    transform: translateY(8px);
+  }
+  33.3% {
+    -webkit-transform: translateY(-6px);
+    transform: translateY(-6px);
+  }
+  49.95% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  66.6% {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+  }
+  83.25% {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.bounce {
+  animation-name: bounce-animation;
+  animation-duration: 2s;
+}
+
+/*everything below here is just setting up the page, so dont worry about it */
+@media (min-width: 768px) {
+  .navbar {
+    text-align: center !important;
+    float: none;
+    display: inline-block;
+  }
+}
+body {
+  font-weight: 600;
+  text-align: center !important;
+  color: white;
+}
+
+nav {
+  text-transform: uppercase;
+}
+nav li {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+nav li a {
+  transition: 0.5s color ease-in-out;
+}
+
+.page-title {
+  opacity: 0.75 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #eee;
+  background-image: url("https://images.unsplash.com/photo-1445346753792-6c667d917349?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTEzMjY1NDg&ixlib=rb-1.2.1&q=85");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cont {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont p {
+  font-size: 3rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cont p span.typed-text {
+  font-weight: normal;
+  color: #dd7732;
+}
+
+.cont p span.cursor {
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 0.1rem;
+  width: 3px;
+  animation: blink 1s infinite;
+}
+
+.cont p span.cursor.typing {
+  animation: none;
+}
+
+@keyframes blink {
+  0% {
+    background-color: #ccc;
+  }
+  49% {
+    background-color: #ccc;
+  }
+  50% {
+    background-color: transparent;
+  }
+  99% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: #ccc;
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Color of the links BEFORE scroll */
+.navbar-scroll .nav-link,
+.navbar-scroll .navbar-toggler-icon {
+  color: #fff;
+}
+
+/* Color of the links AFTER scroll */
+.navbar-scrolled .nav-link,
+.navbar-scrolled .navbar-toggler-icon {
+  color: #4f4f4f;
+}
+
+/* Color of the navbar AFTER scroll */
+.navbar-scrolled {
+  background-color: #fff;
+}
+
+/* An optional height of the navbar AFTER scroll */
+.navbar.navbar-scroll.navbar-scrolled {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
